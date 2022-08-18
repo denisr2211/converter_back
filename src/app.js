@@ -6,9 +6,9 @@ const convert = require('./modules/calculate')
 const app = express();
 const port = 3333;
 
-const pathDirectory = path.join(__dirname, '../public');
+// const pathDirectory = path.join(__dirname, '../public');
 const urlencodedParser = express.urlencoded({extended: false});
-app.use(express.static('./public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(bodyParser.json());
 
