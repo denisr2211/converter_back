@@ -13,11 +13,13 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 
 app.post("/convert", urlencodedParser, (req, res) => {
-    if(!req.body) return res.sendStatus(400);
-
+    if(!req.body) {
+        return res.sendStatus(400);
+    } else {
     let result = convert(req.body.distance, req.body.from, req.body.to);
 
     res.send(result);
+    }
 });
 
 app.listen(port, () => {
